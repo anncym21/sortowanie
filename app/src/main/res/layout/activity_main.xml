@@ -59,7 +59,7 @@
             android:id="@+id/losBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="c  enter"
+            android:layout_gravity="center"
             android:gravity="center"
             android:text="Los"  />
 
