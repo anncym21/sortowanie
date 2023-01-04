@@ -4,6 +4,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import java.util.*
 
+class MainActivity : AppCompatActivity(){
+    override fun onCreate(savedInstanceState: Bundle?){
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+    }
+}
 fun main(args: Array<String>){
     val numbers = takeInput()
     bubbleSort(numbers)
@@ -36,7 +43,7 @@ fun bubbleSortWithSteps(numbers: IntArray){
     for(pass in 0 until (numbers.size - 1)){
         for(currentPosition in 0 until(numbers.size - pass - 1)){
             print("Pass-%d-Step-%d:Comparing elements at position %d(%d) and %d(%d). ".format(pass, currentPosition,
-            currentPosition, numbers[currentPosition],(currentPosition + 1), numbers[currentPosition +1]))
+                currentPosition, numbers[currentPosition],(currentPosition + 1), numbers[currentPosition +1]))
             if (numbers[currentPosition]>numbers[currentPosition + 1]){
                 println("They are in wrong order, swap them")
                 val tmp = numbers[currentPosition]
