@@ -24,15 +24,15 @@
             android:text="podaj rozmiar danych.: " />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/sortBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="Button" />
+            android:text="Sort" />
 
         <ProgressBar
-            android:id="@+id/progressBar"
+            android:id="@+id/sortProgress"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="211dp"
             android:layout_height="32dp"
