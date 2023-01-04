@@ -5,13 +5,17 @@ import android.os.Bundle
 import java.util.*
 
 class MainActivity : AppCompatActivity(){
-    override fun onCreate(savedInstanceState: Bundle?){
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
     }
 }
+
 fun main(args: Array<String>){
+    print("Enter text: ")
+    val stringInput = readLine()!!
+    println("You entered: $stringInput")
     val numbers = takeInput()
     bubbleSort(numbers)
     println(numbers.joinToString(separator = " "))

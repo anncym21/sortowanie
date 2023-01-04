@@ -16,12 +16,12 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/daneTekst"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="TextView" />
+            android:text="podaj rozmiar danych.: " />
 
         <Button
             android:id="@+id/button"
