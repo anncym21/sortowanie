@@ -2,29 +2,61 @@ package com.nkodem.sort
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import java.util.*
 
-class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+fun main(args: Array<String>){
+    val numbers = takeInput()
+    bubbleSort(numbers)
+    println(numbers.joinToString(separator = " "))
+}
+fun takeInput(): IntArray{
+    val scanner = Scanner(System.`in`)
+    val size = scanner.nextInt()
+    val numbers = IntArray(size)
+    for(i in 0 until size){
+        numbers[i] = scanner.nextInt()
     }
-    private fun sort(arr:IntArray):IntArray{
-        var swap = true
-        while(swap){
-            swap = false
-            for(i in 0 until arr.size-1){
-                if(arr[i] > arr[i+1]){
-                    val temp = arr[i]
-                    arr[i] = arr[i+1]
-                    arr[i+1] = temp
-                    swap = true
-                }
+    return numbers
+}
+
+fun bubbleSort(numbers: IntArray){
+    for(pass in 0 until (numbers.size - 1)){
+        for(currentPosition in 0 until(numbers.size - pass - 1)){
+            if(numbers[currentPosition]>numbers[currentPosition + 1]){
+                val tmp = numbers[currentPosition]
+                numbers[currentPosition] = numbers[currentPosition + 1]
+                numbers[currentPosition + 1] = tmp
             }
         }
-        return arr
     }
-    fun main(args:Array<String>){
-        val list = sort(intArrayOf(1,20,3,8,6))
-        for(k in list ) print("$k ")
+}
+
+fun bubbleSortWithSteps(numbers: IntArray){
+    println("Initial numbers: [%s]".format(numbers.joinToString(separator = ", ")))
+    for(pass in 0 until (numbers.size - 1)){
+        for(currentPosition in 0 until(numbers.size - pass - 1)){
+            print("Pass-%d-Step-%d:Comparing elements at position %d(%d) and %d(%d). ".format(pass, currentPosition,
+            currentPosition, numbers[currentPosition],(currentPosition + 1), numbers[currentPosition +1]))
+            if (numbers[currentPosition]>numbers[currentPosition + 1]){
+                println("They are in wrong order, swap them")
+                val tmp = numbers[currentPosition]
+                numbers[currentPosition] = numbers[currentPosition + 1]
+                numbers[currentPosition + 1] = tmp
+            }else{
+                println("Tey are in correct order, do not swap them")
+            }
+            println("Numbers after Pass-%d-Step-%d: [%s]".format(pass, currentPosition, numbers.joinToString(separator = ", ")))
+        }
+    }
+    println("Sorted numbers: [%s]".format(numbers.joinToString(separator = ", ")))
+}
+
+fun bubbleSortSinglePass(numbers: IntArray){
+    for (currentPosition in 0 until(numbers.size - 1)){
+        if(numbers[currentPosition]>numbers[currentPosition + 1]){
+            val tmp = numbers[currentPosition]
+            numbers[currentPosition] = numbers[currentPosition + 1]
+            numbers[currentPosition + 1] = tmp
+        }
     }
 }
