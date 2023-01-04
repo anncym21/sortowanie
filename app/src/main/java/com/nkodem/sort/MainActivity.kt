@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity(){
             poSort.text = list.toString()
             przedSort.text = ""
         }
-
+//
         losBtn.setOnClickListener {
 
             arrSize = podaneTekst.text.toString().toInt()
