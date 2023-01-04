@@ -23,6 +23,30 @@
             android:gravity="center"
             android:text="podaj rozmiar danych.: " />
 
+        <TextView
+            android:id="@+id/przedSort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="TextView"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/poSort"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:text="TextView"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/podaneTekst"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberSigned" />
+
         <Button
             android:id="@+id/sortBtn"
             android:layout_width="wrap_content"
@@ -30,6 +54,14 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="Sort" />
+
+        <Button
+            android:id="@+id/losBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Los"  />
 
         <ProgressBar
             android:id="@+id/sortProgress"
