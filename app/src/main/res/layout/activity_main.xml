@@ -7,13 +7,15 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_width="410dp"
-        android:layout_height="731dp"
+        android:layout_width="289dp"
+        android:layout_height="547dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.448"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.702">
 
         <TextView
             android:id="@+id/daneTekst"
@@ -22,6 +24,12 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:text="podaj rozmiar danych.: " />
+
+        <TextView
+            android:id="@+id/timeView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
 
         <TextView
             android:id="@+id/przedSort"
@@ -61,7 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
-            android:text="Los"  />
+            android:text="Los" />
 
         <ProgressBar
             android:id="@+id/sortProgress"

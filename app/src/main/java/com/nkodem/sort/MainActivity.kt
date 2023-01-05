@@ -17,17 +17,23 @@ class MainActivity : AppCompatActivity(){
         val sortBtn = findViewById<Button>(R.id.sortBtn)
         val losBtn = findViewById<Button>(R.id.losBtn)
         val przedSort = findViewById<TextView>(R.id.przedSort)
+        val timeView = findViewById<TextView>(R.id.timeView)
         val poSort = findViewById<TextView>(R.id.poSort)
         val podaneTekst = findViewById<EditText>(R.id.podaneTekst)
         val sortProgress = findViewById<ProgressBar>(R.id.sortProgress)
 
-        list = mutableListOf()
+
+        list = mutableListOf<Int>()
         sortBtn.setOnClickListener {
-            list = bubbleSort(list.toIntArray()).toMutableList()
-            poSort.text = list.toString()
+            val begin = System.nanoTime()
+            poSort.text = bubbleSort(list.toIntArray()).toMutableList().toString()
+            val end = System.nanoTime()
+            val time = end - begin
+            timeView.text = time.toString()
             przedSort.text = ""
+            sortProgress.progress = 100
         }
-//
+
         losBtn.setOnClickListener {
 
             arrSize = podaneTekst.text.toString().toInt()
@@ -39,69 +45,25 @@ class MainActivity : AppCompatActivity(){
             }
             przedSort.text = list.toString()
             poSort.text = ""
-
+            sortProgress.progress = 0
         }
     }
 
 }
+fun bubbleSort(arr:IntArray):IntArray{
+    var swap = true
+    while(swap){
+        swap = false
+        for(i in 0 until arr.size-1){
+            if(arr[i] > arr[i+1]){
+                val temp = arr[i]
+                arr[i] = arr[i+1]
+                arr[i + 1] = temp
 
-/*fun main(args: Array<String>){
-    print("Enter text: ")
-    val stringInput = readLine()!!
-    println("You entered: $stringInput")
-    val numbers = takeInput()
-    bubbleSort(numbers)
-    println(numbers.joinToString(separator = " "))
-}*/
-fun takeInput(): IntArray{
-    val scanner = Scanner(System.`in`)
-    val size = scanner.nextInt()
-    val numbers = IntArray(size)
-    for(i in 0 until size){
-        numbers[i] = scanner.nextInt()
-    }
-    return numbers
-}
-
-fun bubbleSort(numbers: IntArray){
-    for(pass in 0 until (numbers.size - 1)){
-        for(currentPosition in 0 until(numbers.size - pass - 1)){
-            if(numbers[currentPosition]>numbers[currentPosition + 1]){
-                val tmp = numbers[currentPosition]
-                numbers[currentPosition] = numbers[currentPosition + 1]
-                numbers[currentPosition + 1] = tmp
+                swap = true
             }
         }
     }
-}
-
-fun bubbleSortWithSteps(numbers: IntArray){
-    println("Initial numbers: [%s]".format(numbers.joinToString(separator = ", ")))
-    for(pass in 0 until (numbers.size - 1)){
-        for(currentPosition in 0 until(numbers.size - pass - 1)){
-            print("Pass-%d-Step-%d:Comparing elements at position %d(%d) and %d(%d). ".format(pass, currentPosition,
-                currentPosition, numbers[currentPosition],(currentPosition + 1), numbers[currentPosition +1]))
-            if (numbers[currentPosition]>numbers[currentPosition + 1]){
-                println("They are in wrong order, swap them")
-                val tmp = numbers[currentPosition]
-                numbers[currentPosition] = numbers[currentPosition + 1]
-                numbers[currentPosition + 1] = tmp
-            }else{
-                println("Tey are in correct order, do not swap them")
-            }
-            println("Numbers after Pass-%d-Step-%d: [%s]".format(pass, currentPosition, numbers.joinToString(separator = ", ")))
-        }
-    }
-    println("Sorted numbers: [%s]".format(numbers.joinToString(separator = ", ")))
-}
-
-fun bubbleSortSinglePass(numbers: IntArray){
-    for (currentPosition in 0 until(numbers.size - 1)){
-        if(numbers[currentPosition]>numbers[currentPosition + 1]){
-            val tmp = numbers[currentPosition]
-            numbers[currentPosition] = numbers[currentPosition + 1]
-            numbers[currentPosition + 1] = tmp
-        }
-    }
+    return arr
 }
 
